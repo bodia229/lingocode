@@ -24,7 +24,7 @@ Future<void> main() async {
   }
 
   await Db.instance.database;
-  await Seeder.seedIfEmpty();
+  await Seeder.syncContent();
 
   final prefs = await AppPrefs.load();
 

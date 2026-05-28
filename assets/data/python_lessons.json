@@ -380,5 +380,90 @@
       {"id": "e4", "kind": "multipleChoice", "prompt": "Який inструмент створює всі комбінації пар?", "choices": ["itertools.product", "itertools.chain", "itertools.zip_longest", "itertools.cycle"], "expected": "itertools.product"},
       {"id": "e5", "kind": "fillBlank", "prompt": "Часткове застосування функції:\n\nfrom functools import ____\nadd5 = partial(operator.add, 5)", "expected": "partial"}
     ]
+  },
+  {
+    "id": "py_31_pytest_mock",
+    "order": 31,
+    "topic": "testing",
+    "title": "pytest: mocking",
+    "description": "Заміна залежностей через unittest.mock та monkeypatch.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Імпортуйте патч:\n\nfrom unittest.mock import ____", "expected": "patch"},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Задайте, що поверне mock:\n\nm = MagicMock()\nm.____ = 42", "expected": "return_value"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Який атрибут робить mock підняти виняток?", "choices": ["raises", "side_effect", "throws", "exception"], "expected": "side_effect"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Як перевірити, що mock викликали з аргументом 42?", "choices": ["mock.was_called(42)", "mock.assert_called_with(42)", "assert mock(42)", "mock.check(42)"], "expected": "mock.assert_called_with(42)"},
+      {"id": "e5", "kind": "fillBlank", "prompt": "Mock для async-функції:\n\nfrom unittest.mock import ____\nasync_mock = AsyncMock(return_value=10)", "expected": "AsyncMock"}
+    ]
+  },
+  {
+    "id": "py_32_fastapi_auth",
+    "order": 32,
+    "topic": "web",
+    "title": "FastAPI: OAuth2 + JWT",
+    "description": "Видача JWT-токена та захист ендпойнтів.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Схема для читання Bearer-токена:\n\nfrom fastapi.security import ____\noauth2 = OAuth2PasswordBearer(tokenUrl='/token')", "expected": "OAuth2PasswordBearer"},
+      {"id": "e2", "kind": "multipleChoice", "prompt": "Який код повертати, якщо токен невалідний?", "choices": ["400", "401", "403", "500"], "expected": "401"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Який код повертати, якщо токен валідний, але прав не вистачає?", "choices": ["401", "402", "403", "404"], "expected": "403"},
+      {"id": "e4", "kind": "fillBlank", "prompt": "Поле з часом протермінування JWT:\n\nclaims = {'sub': 'user', '____': time() + 900}", "expected": "exp"},
+      {"id": "e5", "kind": "multipleChoice", "prompt": "Яка бібліотека рекомендована для хешування паролів?", "choices": ["hashlib", "passlib", "crypt", "md5"], "expected": "passlib"},
+      {"id": "e6", "kind": "fillBlank", "prompt": "Захист ендпойнта через залежність:\n\n@app.get('/me')\nasync def me(user = ____(get_current_user)):\n    return user", "expected": "Depends"}
+    ]
+  },
+  {
+    "id": "py_33_asyncio_gather",
+    "order": 33,
+    "topic": "advanced",
+    "title": "asyncio.gather & TaskGroup",
+    "description": "Паралельне виконання coroutines.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Запустити три coroutines паралельно:\n\nresults = await asyncio.____(c1(), c2(), c3())", "expected": "gather"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport asyncio\nasync def f(x):\n    return x * 2\nasync def main():\n    r = await asyncio.gather(f(1), f(2), f(3))\n    print(r)\nasyncio.run(main())", "expected": "[2, 4, 6]"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Запустити coroutine у фоні (без await):\n\ntask = asyncio.____(my_coroutine())", "expected": "create_task"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Структуроване групування задач (Python 3.11+) — це...", "choices": ["TaskGroup", "TaskPool", "Group", "Cluster"], "expected": "TaskGroup"},
+      {"id": "e5", "kind": "multipleChoice", "prompt": "Що зробить task.cancel()?", "choices": ["видалить задачу мовчки", "підніме CancelledError усередині задачі", "перезапустить її", "ніщо"], "expected": "підніме CancelledError усередині задачі"}
+    ]
+  },
+  {
+    "id": "py_34_async_primitives",
+    "order": 34,
+    "topic": "advanced",
+    "title": "Async: Semaphore, Queue, Lock",
+    "description": "Примітиви синхронізації в asyncio.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Обмежити до 5 паралельних задач:\n\nsem = asyncio.____(5)", "expected": "Semaphore"},
+      {"id": "e2", "kind": "multipleChoice", "prompt": "Що використати для критичної секції?", "choices": ["Semaphore", "Lock", "Event", "Queue"], "expected": "Lock"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Producer/consumer-патерн — це...", "choices": ["Semaphore", "Lock", "Event", "Queue"], "expected": "Queue"},
+      {"id": "e4", "kind": "fillBlank", "prompt": "Сигнал готовності між задачами:\n\nevent = asyncio.____()\nawait event.wait()", "expected": "Event"},
+      {"id": "e5", "kind": "fillBlank", "prompt": "Запустити синхронний код у пулі потоків:\n\nresult = await asyncio.____(blocking_func, arg)", "expected": "to_thread"}
+    ]
+  },
+  {
+    "id": "py_35_resilience",
+    "order": 35,
+    "topic": "advanced",
+    "title": "Async: timeout, retry, circuit breaker",
+    "description": "Стійкість асинхронного коду.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Обмежити час очікування (Python 3.11+):\n\nasync with asyncio.____(5):\n    await long_op()", "expected": "timeout"},
+      {"id": "e2", "kind": "multipleChoice", "prompt": "Який патерн захищає від каскадних падінь сервісу?", "choices": ["retry", "circuit breaker", "fan-out", "backpressure"], "expected": "circuit breaker"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Як називається стратегія: 'повтор з затримкою, що подвоюється'?", "choices": ["linear backoff", "exponential backoff", "constant retry", "instant retry"], "expected": "exponential backoff"},
+      {"id": "e4", "kind": "fillBlank", "prompt": "Захистити задачу від скасування:\n\nresult = await asyncio.____(critical_task())", "expected": "shield"},
+      {"id": "e5", "kind": "multipleChoice", "prompt": "Що таке backpressure?", "choices": ["прискорення продʼюсера", "регулювання потоку даних", "паралелізація", "балансування навантаження"], "expected": "регулювання потоку даних"}
+    ]
+  },
+  {
+    "id": "py_36_async_context",
+    "order": 36,
+    "topic": "advanced",
+    "title": "Async context managers & generators",
+    "description": "async with та async for.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Відкрити async-контекст:\n\n____ with session.connect() as conn:\n    await conn.execute(...)", "expected": "async"},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Метод входу в async-контекст:\n\nclass MyCtx:\n    async def __aenter__(self): ...\n    async def __aexit__(self, *a): ...\n    \n# виклик:\nasync ____ MyCtx():\n    ...", "expected": "with"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Який метод реалізує async-ітератор?", "choices": ["__next__", "__anext__", "__iter__", "__await__"], "expected": "__anext__"},
+      {"id": "e4", "kind": "fillBlank", "prompt": "Ітерація по async-джерелу:\n\n____ for row in stream():\n    print(row)", "expected": "async"},
+      {"id": "e5", "kind": "multipleChoice", "prompt": "Async-генератор використовує...", "choices": ["return", "yield + await", "raise StopAsyncIteration", "asend"], "expected": "yield + await"}
+    ]
   }
 ]

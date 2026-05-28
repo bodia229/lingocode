@@ -278,6 +278,113 @@ class AppStrings extends InheritedWidget {
       'ru': 'Тёмная',
     },
 
+    // Gamification
+    'level': {
+      'en': 'Level',
+      'uk': 'Рівень',
+      'ru': 'Уровень',
+    },
+    'daily_goal': {
+      'en': 'Daily goal',
+      'uk': 'Денна ціль',
+      'ru': 'Дневная цель',
+    },
+    'daily_goal_done': {
+      'en': 'Done for today!',
+      'uk': 'На сьогодні готово!',
+      'ru': 'На сегодня готово!',
+    },
+    'achievements': {
+      'en': 'Achievements',
+      'uk': 'Досягнення',
+      'ru': 'Достижения',
+    },
+    'unlocked_x_of_y': {
+      'en': '{a} / {b} unlocked',
+      'uk': 'Відкрито {a} з {b}',
+      'ru': 'Открыто {a} из {b}',
+    },
+    'deck': {
+      'en': 'All cards',
+      'uk': 'Уся колода',
+      'ru': 'Вся колода',
+    },
+    'search_cards': {
+      'en': 'Search cards…',
+      'uk': 'Пошук карток…',
+      'ru': 'Поиск карточек…',
+    },
+    'all_topics': {
+      'en': 'All topics',
+      'uk': 'Усі топіки',
+      'ru': 'Все топики',
+    },
+    'cards_count': {
+      'en': '{n} cards',
+      'uk': '{n} карток',
+      'ru': '{n} карточек',
+    },
+    'mastery': {
+      'en': 'Mastery',
+      'uk': 'Опанування',
+      'ru': 'Освоено',
+    },
+    'combo': {
+      'en': 'Combo',
+      'uk': 'Комбо',
+      'ru': 'Комбо',
+    },
+    'session_perfect': {
+      'en': 'Perfect session! {n} cards, no mistakes.',
+      'uk': 'Ідеальна сесія! {n} карток без помилок.',
+      'ru': 'Идеальная сессия! {n} карточек без ошибок.',
+    },
+    'set_daily_goal': {
+      'en': 'Set daily goal',
+      'uk': 'Встановити денну ціль',
+      'ru': 'Установить дневную цель',
+    },
+    'achievement_unlocked': {
+      'en': 'Achievement unlocked',
+      'uk': 'Досягнення відкрито',
+      'ru': 'Достижение открыто',
+    },
+    'locked': {
+      'en': 'Locked',
+      'uk': 'Заблоковано',
+      'ru': 'Заблокировано',
+    },
+
+    // Achievement titles + descriptions
+    'ach_first_steps': {'en': 'First steps', 'uk': 'Перші кроки', 'ru': 'Первые шаги'},
+    'ach_first_steps_desc': {'en': 'Review your first card.', 'uk': 'Повторити першу картку.', 'ru': 'Повторить первую карточку.'},
+    'ach_reviewed_10': {'en': 'Sprout', 'uk': 'Паросток', 'ru': 'Росток'},
+    'ach_reviewed_10_desc': {'en': 'Review 10 cards.', 'uk': 'Повторити 10 карток.', 'ru': 'Повторить 10 карточек.'},
+    'ach_reviewed_100': {'en': 'Sapling', 'uk': 'Деревце', 'ru': 'Саженец'},
+    'ach_reviewed_100_desc': {'en': 'Review 100 cards.', 'uk': 'Повторити 100 карток.', 'ru': 'Повторить 100 карточек.'},
+    'ach_reviewed_1000': {'en': 'Forest', 'uk': 'Ліс', 'ru': 'Лес'},
+    'ach_reviewed_1000_desc': {'en': 'Review 1 000 cards.', 'uk': 'Повторити 1 000 карток.', 'ru': 'Повторить 1 000 карточек.'},
+    'ach_streak_3': {'en': 'Warming up', 'uk': 'Розгін', 'ru': 'Разгон'},
+    'ach_streak_3_desc': {'en': '3-day streak.', 'uk': 'Серія 3 дні поспіль.', 'ru': 'Серия 3 дня подряд.'},
+    'ach_streak_7': {'en': 'Week of fire', 'uk': 'Тиждень вогню', 'ru': 'Неделя огня'},
+    'ach_streak_7_desc': {'en': '7-day streak.', 'uk': 'Серія 7 днів поспіль.', 'ru': 'Серия 7 дней подряд.'},
+    'ach_streak_30': {'en': 'Month of mastery', 'uk': 'Місяць майстерності', 'ru': 'Месяц мастерства'},
+    'ach_streak_30_desc': {'en': '30-day streak.', 'uk': 'Серія 30 днів поспіль.', 'ru': 'Серия 30 дней подряд.'},
+    'ach_xp_100': {'en': 'First century', 'uk': 'Перша сотня', 'ru': 'Первая сотня'},
+    'ach_xp_100_desc': {'en': 'Earn 100 XP.', 'uk': 'Здобути 100 XP.', 'ru': 'Заработать 100 XP.'},
+    'ach_xp_1000': {'en': 'XP grinder', 'uk': 'XP-фермер', 'ru': 'XP-фермер'},
+    'ach_xp_1000_desc': {'en': 'Earn 1 000 XP.', 'uk': 'Здобути 1 000 XP.', 'ru': 'Заработать 1 000 XP.'},
+    'ach_lessons_5': {'en': 'Pythonista', 'uk': 'Пайтоніст', 'ru': 'Питонист'},
+    'ach_lessons_5_desc': {'en': 'Complete 5 Python lessons.', 'uk': 'Завершити 5 уроків Python.', 'ru': 'Завершить 5 уроков Python.'},
+    'ach_lessons_all': {'en': 'Course master', 'uk': 'Майстер курсу', 'ru': 'Мастер курса'},
+    'ach_lessons_all_desc': {'en': 'Complete every Python lesson.', 'uk': 'Завершити всі уроки Python.', 'ru': 'Завершить все уроки Python.'},
+    'ach_learned_50': {'en': 'Vocabulary builder', 'uk': 'Лексика+', 'ru': 'Словарь+'},
+    'ach_learned_50_desc': {'en': 'Learn 50 English cards.', 'uk': 'Вивчити 50 англійських карток.', 'ru': 'Выучить 50 английских карточек.'},
+    'ach_combo_10': {'en': 'Sharp shooter', 'uk': 'Влучний стрілець', 'ru': 'Меткий стрелок'},
+    'ach_combo_10_desc': {'en': '10 correct answers in a row.', 'uk': '10 правильних відповідей поспіль.', 'ru': '10 правильных ответов подряд.'},
+    'ach_perfect': {'en': 'Flawless', 'uk': 'Бездоганно', 'ru': 'Безупречно'},
+    'ach_perfect_desc': {'en': 'Finish a review session without a single mistake.', 'uk': 'Завершити сесію повторення без помилок.', 'ru': 'Завершить сессию повторения без ошибок.'},
+
     // Languages
     'lang_en': {
       'en': 'English',
