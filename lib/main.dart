@@ -25,11 +25,11 @@ Future<void> main() async {
   await Db.instance.database;
   await Seeder.seedIfEmpty();
 
-  final localeNotifier = await LocaleNotifier.load();
+  final prefs = await AppPrefs.load();
 
   runApp(
     ChangeNotifierProvider.value(
-      value: localeNotifier,
+      value: prefs,
       child: const LingoCodeApp(),
     ),
   );
@@ -40,18 +40,18 @@ class LingoCodeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final notifier = context.watch<LocaleNotifier>();
+    final prefs = context.watch<AppPrefs>();
     return MaterialApp(
       title: 'LingoCode',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
-      themeMode: ThemeMode.system,
-      locale: notifier.locale,
+      themeMode: prefs.themeMode,
+      locale: prefs.locale,
       supportedLocales: AppStrings.supported,
       builder: (context, child) {
         return AppStrings(
-          locale: notifier.locale,
+          locale: prefs.locale,
           child: child ?? const SizedBox.shrink(),
         );
       },

@@ -256,6 +256,28 @@ class AppStrings extends InheritedWidget {
       'ru': 'Последний вход',
     },
 
+    // Theme
+    'theme': {
+      'en': 'Theme',
+      'uk': 'Тема',
+      'ru': 'Тема',
+    },
+    'theme_system': {
+      'en': 'Follow system',
+      'uk': 'Як у системі',
+      'ru': 'Как в системе',
+    },
+    'theme_light': {
+      'en': 'Light',
+      'uk': 'Світла',
+      'ru': 'Светлая',
+    },
+    'theme_dark': {
+      'en': 'Dark',
+      'uk': 'Темна',
+      'ru': 'Тёмная',
+    },
+
     // Languages
     'lang_en': {
       'en': 'English',

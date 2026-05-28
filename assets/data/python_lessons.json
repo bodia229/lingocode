@@ -245,5 +245,140 @@
       {"id": "e3", "kind": "multipleChoice", "prompt": "Який модуль стандартної бібліотеки для асинхронності?", "choices": ["asyncio", "threading", "subprocess", "queue"], "expected": "asyncio"},
       {"id": "e4", "kind": "multipleChoice", "prompt": "Що повертає виклик async-функції?", "choices": ["рядок", "число", "coroutine", "None"], "expected": "coroutine"}
     ]
+  },
+  {
+    "id": "py_21_numpy_basics",
+    "order": 21,
+    "topic": "libraries",
+    "title": "NumPy basics",
+    "description": "Створення масивів, форма, базова арифметика.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Створіть масив з [1, 2, 3]:\n\nimport numpy as np\narr = np.____([1, 2, 3])", "expected": "array"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport numpy as np\narr = np.array([1, 2, 3, 4])\nprint(arr.shape)", "expected": "(4,)"},
+      {"id": "e3", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport numpy as np\nprint(np.zeros(3))", "expected": "[0. 0. 0.]"},
+      {"id": "e4", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport numpy as np\narr = np.array([1, 2, 3])\nprint(arr * 2)", "expected": "[2 4 6]", "explanation": "Множення на скаляр застосовується поелементно."},
+      {"id": "e5", "kind": "multipleChoice", "prompt": "Який тип результату np.array([1, 2])?", "choices": ["list", "tuple", "ndarray", "Array"], "expected": "ndarray"}
+    ]
+  },
+  {
+    "id": "py_22_numpy_advanced",
+    "order": 22,
+    "topic": "libraries",
+    "title": "NumPy slicing & broadcasting",
+    "description": "Зрізи, маски, broadcasting.",
+    "exercises": [
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport numpy as np\narr = np.array([10, 20, 30, 40, 50])\nprint(arr[1:4])", "expected": "[20 30 40]"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport numpy as np\narr = np.array([1, 2, 3, 4, 5])\nprint(arr[arr > 2])", "expected": "[3 4 5]", "explanation": "Булева маска фільтрує елементи."},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Обчисліть суму всіх елементів:\n\narr.____()", "expected": "sum"},
+      {"id": "e4", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport numpy as np\nm = np.array([[1, 2], [3, 4]])\nprint(m.shape)", "expected": "(2, 2)"},
+      {"id": "e5", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport numpy as np\nm = np.array([[1, 2], [3, 4]])\nprint(m.sum(axis=0))", "expected": "[4 6]", "explanation": "axis=0 — згортка по рядках (по стовпцях)."}
+    ]
+  },
+  {
+    "id": "py_23_pandas_advanced",
+    "order": 23,
+    "topic": "libraries",
+    "title": "Pandas: groupby & merge",
+    "description": "Групування, агрегації, обʼєднання таблиць.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Згрупуйте по колонці city:\n\ndf.____('city').sum()", "expected": "groupby"},
+      {"id": "e2", "kind": "multipleChoice", "prompt": "Який метод обʼєднує два DataFrame по спільному ключу?", "choices": ["concat", "merge", "join", "append"], "expected": "merge"},
+      {"id": "e3", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport pandas as pd\ndf = pd.DataFrame({'g': ['a','a','b'], 'v': [1, 2, 3]})\nprint(df.groupby('g')['v'].sum().to_dict())", "expected": "{'a': 3, 'b': 3}"},
+      {"id": "e4", "kind": "fillBlank", "prompt": "Заповніть пропуски нулями:\n\ndf.____(0)", "expected": "fillna"},
+      {"id": "e5", "kind": "multipleChoice", "prompt": "Який метод сортує DataFrame за колонкою?", "choices": ["order", "sort", "sort_values", "sort_by"], "expected": "sort_values"}
+    ]
+  },
+  {
+    "id": "py_24_fastapi_basics",
+    "order": 24,
+    "topic": "web",
+    "title": "FastAPI: hello world",
+    "description": "Перший endpoint, декоратори маршрутів.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Створіть FastAPI-додаток:\n\nfrom fastapi import FastAPI\napp = ____()", "expected": "FastAPI"},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Декоратор для GET-запиту на /hello:\n\n@app.____('/hello')\ndef hello():\n    return {'msg': 'hi'}", "expected": "get"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Чим запускається FastAPI?", "choices": ["python app.py", "flask run", "uvicorn main:app", "fastapi serve"], "expected": "uvicorn main:app"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "За якою URL відкривається Swagger UI у FastAPI?", "choices": ["/swagger", "/docs", "/api", "/openapi"], "expected": "/docs"},
+      {"id": "e5", "kind": "fillBlank", "prompt": "Path-параметр у маршруті:\n\n@app.get('/users/{____}')\ndef get_user(user_id: int):\n    ...", "expected": "user_id"}
+    ]
+  },
+  {
+    "id": "py_25_fastapi_pydantic",
+    "order": 25,
+    "topic": "web",
+    "title": "FastAPI + Pydantic",
+    "description": "Валідація request body через моделі Pydantic.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Створіть Pydantic-модель:\n\nfrom pydantic import BaseModel\nclass User(____):\n    name: str\n    age: int", "expected": "BaseModel"},
+      {"id": "e2", "kind": "multipleChoice", "prompt": "Який клас використовується для валідації?", "choices": ["dataclass", "BaseModel", "TypedDict", "NamedTuple"], "expected": "BaseModel"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Підняти 404 помилку:\n\nraise ____(status_code=404)", "expected": "HTTPException"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Як впровадити залежність (DB-сесію) у handler?", "choices": ["@inject", "Depends(get_db)", "from di import db", "@auto"], "expected": "Depends(get_db)"}
+    ]
+  },
+  {
+    "id": "py_26_pytest_basics",
+    "order": 26,
+    "topic": "testing",
+    "title": "pytest: assert & fixtures",
+    "description": "Базові тести та фікстури.",
+    "exercises": [
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\ndef add(a, b):\n    return a + b\n\nprint(add(2, 3) == 5)", "expected": "True"},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Декоратор для фікстури pytest:\n\n@pytest.____\ndef user():\n    return {'name': 'A'}", "expected": "fixture"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "З якого префіксу починаються тестові функції?", "choices": ["check_", "spec_", "test_", "it_"], "expected": "test_"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Як перевірити, що код піднімає виняток?", "choices": ["assert raise", "pytest.raises", "expect.raise", "try/except"], "expected": "pytest.raises"}
+    ]
+  },
+  {
+    "id": "py_27_pytest_parametrize",
+    "order": 27,
+    "topic": "testing",
+    "title": "pytest: parametrize",
+    "description": "Запуск тесту з набором вхідних даних.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Декоратор для параметризації:\n\n@pytest.mark.____('n,expected', [(2, 4), (3, 9)])\ndef test_square(n, expected):\n    assert n*n == expected", "expected": "parametrize"},
+      {"id": "e2", "kind": "multipleChoice", "prompt": "Скільки тестів запустить parametrize з 5 наборами даних?", "choices": ["1", "2", "5", "10"], "expected": "5"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Позначити тест як пропущений:\n\n@pytest.mark.____\ndef test_x():\n    ...", "expected": "skip"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Файл зі спільними фікстурами називається?", "choices": ["fixtures.py", "conftest.py", "shared.py", "pytest.ini"], "expected": "conftest.py"}
+    ]
+  },
+  {
+    "id": "py_28_regex",
+    "order": 28,
+    "topic": "stdlib",
+    "title": "Regular expressions",
+    "description": "Модуль re для роботи з регулярними виразами.",
+    "exercises": [
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport re\nprint(bool(re.match(r'\\d+', '123abc')))", "expected": "True"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport re\nprint(re.findall(r'\\d+', 'a1 b22 c333'))", "expected": "['1', '22', '333']"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Замініть всі цифри на 'X':\n\nimport re\nresult = re.____(r'\\d', 'X', 'a1b2c3')", "expected": "sub"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Що означає метасимвол \\\\w?", "choices": ["whitespace", "word character (літери/цифри/_)", "будь-який символ", "цифра"], "expected": "word character (літери/цифри/_)"}
+    ]
+  },
+  {
+    "id": "py_29_dataclasses",
+    "order": 29,
+    "topic": "advanced",
+    "title": "Dataclasses",
+    "description": "Автоматична генерація конструктора, repr, eq.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Декоратор класу:\n\nfrom dataclasses import ____\n\n@dataclass\nclass Point:\n    x: int\n    y: int", "expected": "dataclass"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nfrom dataclasses import dataclass\n@dataclass\nclass P:\n    x: int\n    y: int\np = P(1, 2)\nprint(p)", "expected": "P(x=1, y=2)"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Зробити dataclass незмінним:\n\n@dataclass(____=True)\nclass P: x: int", "expected": "frozen"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Що автоматично генерує @dataclass?", "choices": ["__str__", "__init__, __repr__, __eq__", "__hash__", "__slots__"], "expected": "__init__, __repr__, __eq__"}
+    ]
+  },
+  {
+    "id": "py_30_itertools",
+    "order": 30,
+    "topic": "stdlib",
+    "title": "itertools & functools",
+    "description": "Інструменти для роботи з ітераторами та функціями.",
+    "exercises": [
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nfrom itertools import chain\nprint(list(chain([1, 2], [3, 4])))", "expected": "[1, 2, 3, 4]"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nfrom functools import reduce\nimport operator\nprint(reduce(operator.add, [1, 2, 3, 4]))", "expected": "10"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Декоратор для мемоїзації:\n\nfrom functools import ____\n\n@lru_cache\ndef fib(n): ...", "expected": "lru_cache"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Який inструмент створює всі комбінації пар?", "choices": ["itertools.product", "itertools.chain", "itertools.zip_longest", "itertools.cycle"], "expected": "itertools.product"},
+      {"id": "e5", "kind": "fillBlank", "prompt": "Часткове застосування функції:\n\nfrom functools import ____\nadd5 = partial(operator.add, 5)", "expected": "partial"}
+    ]
   }
 ]
