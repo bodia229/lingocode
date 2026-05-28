@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
+import '../l10n/app_strings.dart';
 import '../models/flashcard.dart';
 import '../services/database.dart';
 import '../services/srs.dart';
@@ -13,7 +13,6 @@ class ReviewScreen extends StatefulWidget {
 }
 
 class _ReviewScreenState extends State<ReviewScreen> {
-  final _tts = FlutterTts();
   List<Flashcard> _queue = [];
   int _index = 0;
   bool _showAnswer = false;
@@ -23,22 +22,12 @@ class _ReviewScreenState extends State<ReviewScreen> {
   @override
   void initState() {
     super.initState();
-    _setupTts();
     _load();
-  }
-
-  Future<void> _setupTts() async {
-    try {
-      await _tts.setLanguage('en-US');
-      await _tts.setSpeechRate(0.45);
-      await _tts.setVolume(1);
-    } catch (_) {}
   }
 
   Future<void> _load() async {
     final cards = await Db.instance.dueCards(type: CardType.english, limit: 30);
     if (cards.isEmpty) {
-      // If nothing is due, surface the soonest 10 cards anyway for free practice.
       final db = await Db.instance.database;
       final rows = await db.query('flashcards',
           where: 'type = ?',
@@ -81,37 +70,24 @@ class _ReviewScreenState extends State<ReviewScreen> {
     });
   }
 
-  Future<void> _speak(String text) async {
-    try {
-      await _tts.stop();
-      await _tts.speak(text);
-    } catch (_) {}
-  }
-
   void _showSummary() {
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (_) => AlertDialog(
-        title: const Text('Session complete'),
-        content: Text('You reviewed $_reviewed cards. Nice work.'),
+        title: Text(context.tr('session_complete')),
+        content: Text(context.tr('session_summary', {'n': _reviewed})),
         actions: [
           FilledButton(
             onPressed: () {
               Navigator.of(context).pop();
               Navigator.of(context).pop();
             },
-            child: const Text('Back to home'),
+            child: Text(context.tr('back_to_home')),
           ),
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _tts.stop();
-    super.dispose();
   }
 
   @override
@@ -121,8 +97,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
     }
     if (_queue.isEmpty) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Review')),
-        body: const Center(child: Text('No cards yet. Add some first.')),
+        appBar: AppBar(title: Text(context.tr('review'))),
+        body: Center(child: Text(context.tr('no_cards'))),
       );
     }
 
@@ -131,7 +107,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Review  ${_index + 1} / ${_queue.length}'),
+        title: Text(context.tr('review_progress', {'i': _index + 1, 'n': _queue.length})),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(
@@ -156,27 +132,16 @@ class _ReviewScreenState extends State<ReviewScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                card.front,
-                                style: TextStyle(
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.w600,
-                                    color: cs.onPrimaryContainer),
-                              ),
-                            ),
-                            IconButton(
-                              icon: const Icon(Icons.volume_up),
-                              color: cs.onPrimaryContainer,
-                              onPressed: () => _speak(card.audioText ?? card.front),
-                            ),
-                          ],
+                        Text(
+                          card.front,
+                          style: TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.w600,
+                              color: cs.onPrimaryContainer),
                         ),
                         if (card.hint != null) ...[
                           const SizedBox(height: 8),
-                          Text('Hint: ${card.hint}',
+                          Text('${context.tr('hint_prefix')}${card.hint}',
                               style: TextStyle(
                                   color: cs.onPrimaryContainer.withOpacity(.8))),
                         ],
@@ -184,7 +149,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                         AnimatedCrossFade(
                           duration: const Duration(milliseconds: 200),
                           firstChild: Text(
-                            'Tap to reveal answer',
+                            context.tr('tap_to_reveal'),
                             style: TextStyle(
                                 color: cs.onPrimaryContainer.withOpacity(.6)),
                           ),
@@ -221,15 +186,15 @@ class _ReviewScreenState extends State<ReviewScreen> {
             if (!_showAnswer)
               FilledButton(
                 onPressed: () => setState(() => _showAnswer = true),
-                child: const Text('Show answer'),
+                child: Text(context.tr('show_answer')),
               )
             else
               Row(
                 children: [
-                  _gradeBtn('Again', Grade.again, Colors.red),
-                  _gradeBtn('Hard', Grade.hard, Colors.orange),
-                  _gradeBtn('Good', Grade.good, Colors.green),
-                  _gradeBtn('Easy', Grade.easy, Colors.blue),
+                  _gradeBtn(context.tr('again'), Grade.again, Colors.red),
+                  _gradeBtn(context.tr('hard'), Grade.hard, Colors.orange),
+                  _gradeBtn(context.tr('good'), Grade.good, Colors.green),
+                  _gradeBtn(context.tr('easy'), Grade.easy, Colors.blue),
                 ],
               ),
           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_strings.dart';
 import '../models/lesson.dart';
 import '../services/database.dart';
 import '../services/lesson_repo.dart';
@@ -39,7 +40,7 @@ class _LessonListScreenState extends State<LessonListScreen> {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     return Scaffold(
-      appBar: AppBar(title: const Text('Python lessons')),
+      appBar: AppBar(title: Text(context.tr('python_lessons'))),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : ListView.separated(

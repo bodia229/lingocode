@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_strings.dart';
 import '../models/flashcard.dart';
 import '../models/lesson.dart';
 import '../services/database.dart';
@@ -8,6 +9,7 @@ import '../services/streak.dart';
 import 'review_screen.dart';
 import 'lesson_list_screen.dart';
 import 'stats_screen.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -59,15 +61,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LingoCode'),
+        title: Text(context.tr('app_title')),
         actions: [
           IconButton(
             icon: const Icon(Icons.bar_chart),
-            tooltip: 'Stats',
+            tooltip: context.tr('stats'),
             onPressed: () async {
               await Navigator.push(
                   context, MaterialPageRoute(builder: (_) => const StatsScreen()));
               _load();
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings),
+            tooltip: context.tr('settings'),
+            onPressed: () async {
+              await Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const SettingsScreen()));
             },
           ),
         ],
@@ -81,19 +91,19 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 _statTile(
                     icon: Icons.local_fire_department,
-                    label: 'Streak',
+                    label: context.tr('streak'),
                     value: '$_streak',
                     color: Colors.orange),
                 const SizedBox(width: 12),
                 _statTile(
                     icon: Icons.bolt,
-                    label: 'XP',
+                    label: context.tr('xp'),
                     value: '$_xp',
                     color: cs.primary),
               ],
             ),
             const SizedBox(height: 24),
-            Text('English flashcards', style: Theme.of(context).textTheme.titleLarge),
+            Text(context.tr('english_flashcards'), style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 8),
             Card(
               color: cs.primaryContainer,
@@ -102,18 +112,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('$_due cards due now',
+                    Text(context.tr('cards_due_now', {'n': _due}),
                         style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.w600,
                             color: cs.onPrimaryContainer)),
                     const SizedBox(height: 4),
-                    Text('Learned $_learned of $_total',
+                    Text(context.tr('learned_x_of_y', {'a': _learned, 'b': _total}),
                         style: TextStyle(color: cs.onPrimaryContainer.withOpacity(.8))),
                     const SizedBox(height: 16),
                     FilledButton.icon(
                       icon: const Icon(Icons.play_arrow),
-                      label: Text(_due > 0 ? 'Start review' : 'Review anyway'),
+                      label: Text(_due > 0
+                          ? context.tr('start_review')
+                          : context.tr('review_anyway')),
                       onPressed: () async {
                         await Navigator.push(
                             context,
@@ -130,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Python lessons',
+                Text(context.tr('python_lessons'),
                     style: Theme.of(context).textTheme.titleLarge),
                 Text('$completedLessons / ${_lessons.length}',
                     style: TextStyle(color: cs.onSurfaceVariant)),
@@ -143,12 +155,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Interactive exercises with instant feedback.',
-                        style: TextStyle(fontSize: 14)),
+                    Text(context.tr('lessons_subtitle'), style: const TextStyle(fontSize: 14)),
                     const SizedBox(height: 16),
                     FilledButton.icon(
                       icon: const Icon(Icons.code),
-                      label: const Text('Open lessons'),
+                      label: Text(context.tr('open_lessons')),
                       onPressed: () async {
                         await Navigator.push(
                             context,
@@ -162,10 +173,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: 32),
-            Text('Tip', style: Theme.of(context).textTheme.titleSmall),
+            Text(context.tr('tip_title'), style: Theme.of(context).textTheme.titleSmall),
             const SizedBox(height: 4),
             Text(
-              'Daily reviews protect your streak. Even 5 cards a day keeps long-term retention up.',
+              context.tr('tip_body'),
               style: TextStyle(color: cs.onSurfaceVariant),
             ),
           ],

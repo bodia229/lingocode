@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_strings.dart';
 import '../models/flashcard.dart';
 import '../services/database.dart';
 import '../services/streak.dart';
@@ -48,21 +49,22 @@ class _StatsScreenState extends State<StatsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Stats')),
+      appBar: AppBar(title: Text(context.tr('stats'))),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          _statRow('Current streak', '$_streak days', Icons.local_fire_department),
-          _statRow('Total XP', '$_xp', Icons.bolt),
+          _statRow(context.tr('current_streak'),
+              context.tr('days_value', {'n': _streak}), Icons.local_fire_department),
+          _statRow(context.tr('total_xp'), '$_xp', Icons.bolt),
           const Divider(height: 32),
-          _statRow('English cards due', '$_due', Icons.menu_book),
-          _statRow('Cards learned', '$_learned / $_total', Icons.psychology),
+          _statRow(context.tr('english_due'), '$_due', Icons.menu_book),
+          _statRow(context.tr('cards_learned'), '$_learned / $_total', Icons.psychology),
           const Divider(height: 32),
-          _statRow('Python lessons completed', '$_lessonsCompleted', Icons.code),
+          _statRow(context.tr('lessons_completed'), '$_lessonsCompleted', Icons.code),
           if (_lastActive != null) ...[
             const Divider(height: 32),
             _statRow(
-              'Last active',
+              context.tr('last_active'),
               '${_lastActive!.year}-${_lastActive!.month.toString().padLeft(2, '0')}-${_lastActive!.day.toString().padLeft(2, '0')}',
               Icons.event,
             ),

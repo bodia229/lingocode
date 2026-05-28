@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_strings.dart';
 import '../models/lesson.dart';
 import '../services/checker.dart';
 import '../services/database.dart';
@@ -41,8 +42,8 @@ class _LessonScreenState extends State<LessonScreen> {
     final ok = AnswerChecker.isCorrect(user, _exercise.expected);
     setState(() {
       _feedback = ok
-          ? 'Correct!'
-          : 'Not quite. Expected: ${_exercise.expected}';
+          ? context.tr('correct')
+          : context.tr('not_quite_expected', {'expected': _exercise.expected});
       _correct = ok;
     });
     if (ok) {
@@ -54,7 +55,9 @@ class _LessonScreenState extends State<LessonScreen> {
   Future<void> _choose(String value) async {
     final ok = AnswerChecker.isCorrect(value, _exercise.expected);
     setState(() {
-      _feedback = ok ? 'Correct!' : 'Wrong. Expected: ${_exercise.expected}';
+      _feedback = ok
+          ? context.tr('correct')
+          : context.tr('wrong_expected', {'expected': _exercise.expected});
       _correct = ok;
     });
     if (ok) {
@@ -114,7 +117,7 @@ class _LessonScreenState extends State<LessonScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text('Exercise ${_index + 1} of ${widget.lesson.exercises.length}',
+              Text(context.tr('lesson_progress', {'i': _index + 1, 'n': widget.lesson.exercises.length}),
                   style: TextStyle(color: cs.onSurfaceVariant)),
               const SizedBox(height: 12),
               _PromptBlock(prompt: ex.prompt),
@@ -149,14 +152,14 @@ class _LessonScreenState extends State<LessonScreen> {
               if (_feedback == null)
                 FilledButton(
                   onPressed: ex.kind == ExerciseKind.multipleChoice ? null : _check,
-                  child: const Text('Check'),
+                  child: Text(context.tr('check')),
                 )
               else
                 FilledButton(
                   onPressed: _next,
                   child: Text(_index + 1 >= widget.lesson.exercises.length
-                      ? 'Finish'
-                      : 'Next'),
+                      ? context.tr('finish')
+                      : context.tr('next')),
                 ),
             ],
           ),
@@ -186,9 +189,9 @@ class _LessonScreenState extends State<LessonScreen> {
           controller: _controller,
           maxLines: ex.kind == ExerciseKind.writeOutput ? 3 : 1,
           enabled: _feedback == null,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Your answer',
+          decoration: InputDecoration(
+            border: const OutlineInputBorder(),
+            hintText: context.tr('your_answer'),
           ),
         );
     }
