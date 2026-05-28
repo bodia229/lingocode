@@ -6,27 +6,9 @@
     "title": "Hello, World",
     "description": "Виведення тексту у консоль за допомогою функції print().",
     "exercises": [
-      {
-        "id": "e1",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nprint(\"Hello, world!\")",
-        "expected": "Hello, world!",
-        "explanation": "print() виводить аргумент і додає перенесення рядка."
-      },
-      {
-        "id": "e2",
-        "kind": "fillBlank",
-        "prompt": "Допишіть код, щоб вивести Python:\n\n____(\"Python\")",
-        "expected": "print",
-        "hint": "Це вбудована функція виведення."
-      },
-      {
-        "id": "e3",
-        "kind": "multipleChoice",
-        "prompt": "Яка функція виводить текст у консоль?",
-        "choices": ["echo", "print", "console.log", "puts"],
-        "expected": "print"
-      }
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nprint(\"Hello, world!\")", "expected": "Hello, world!", "explanation": "print() виводить аргумент і додає перенесення рядка."},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Допишіть код, щоб вивести Python:\n\n____(\"Python\")", "expected": "print", "hint": "Це вбудована функція виведення."},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Яка функція виводить текст у консоль?", "choices": ["echo", "print", "console.log", "puts"], "expected": "print"}
     ]
   },
   {
@@ -36,31 +18,10 @@
     "title": "Variables",
     "description": "Створення та використання змінних.",
     "exercises": [
-      {
-        "id": "e1",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nname = \"Bohdan\"\nprint(\"Hello, \" + name)",
-        "expected": "Hello, Bohdan"
-      },
-      {
-        "id": "e2",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nx = 10\ny = 3\nprint(x + y)",
-        "expected": "13"
-      },
-      {
-        "id": "e3",
-        "kind": "multipleChoice",
-        "prompt": "Який тип у змінної x = 3.14?",
-        "choices": ["int", "float", "str", "bool"],
-        "expected": "float"
-      },
-      {
-        "id": "e4",
-        "kind": "fillBlank",
-        "prompt": "Створіть змінну age зі значенням 25:\n\nage ____ 25",
-        "expected": "="
-      }
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nname = \"Bohdan\"\nprint(\"Hello, \" + name)", "expected": "Hello, Bohdan"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nx = 10\ny = 3\nprint(x + y)", "expected": "13"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Який тип у змінної x = 3.14?", "choices": ["int", "float", "str", "bool"], "expected": "float"},
+      {"id": "e4", "kind": "fillBlank", "prompt": "Створіть змінну age зі значенням 25:\n\nage ____ 25", "expected": "="}
     ]
   },
   {
@@ -70,25 +31,9 @@
     "title": "If / Else",
     "description": "Перевірка умов через if/elif/else.",
     "exercises": [
-      {
-        "id": "e1",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nx = 5\nif x > 3:\n    print(\"big\")\nelse:\n    print(\"small\")",
-        "expected": "big"
-      },
-      {
-        "id": "e2",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nscore = 75\nif score >= 90:\n    print(\"A\")\nelif score >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")",
-        "expected": "B"
-      },
-      {
-        "id": "e3",
-        "kind": "multipleChoice",
-        "prompt": "Який оператор перевіряє рівність значень?",
-        "choices": ["=", "==", "===", "eq"],
-        "expected": "=="
-      }
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nx = 5\nif x > 3:\n    print(\"big\")\nelse:\n    print(\"small\")", "expected": "big"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nscore = 75\nif score >= 90:\n    print(\"A\")\nelif score >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")", "expected": "B"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Який оператор перевіряє рівність значень?", "choices": ["=", "==", "===", "eq"], "expected": "=="}
     ]
   },
   {
@@ -98,24 +43,9 @@
     "title": "Loops",
     "description": "Цикли for та while.",
     "exercises": [
-      {
-        "id": "e1",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nfor i in range(3):\n    print(i)",
-        "expected": "0\n1\n2"
-      },
-      {
-        "id": "e2",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\ntotal = 0\nfor n in [1, 2, 3, 4]:\n    total += n\nprint(total)",
-        "expected": "10"
-      },
-      {
-        "id": "e3",
-        "kind": "fillBlank",
-        "prompt": "Допишіть цикл, який виведе числа 0,1,2,3,4:\n\nfor i in ____(5):\n    print(i)",
-        "expected": "range"
-      }
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nfor i in range(3):\n    print(i)", "expected": "0\n1\n2"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\ntotal = 0\nfor n in [1, 2, 3, 4]:\n    total += n\nprint(total)", "expected": "10"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Допишіть цикл, який виведе числа 0,1,2,3,4:\n\nfor i in ____(5):\n    print(i)", "expected": "range"}
     ]
   },
   {
@@ -125,24 +55,9 @@
     "title": "Functions",
     "description": "Оголошення функцій та повернення значень.",
     "exercises": [
-      {
-        "id": "e1",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\ndef add(a, b):\n    return a + b\n\nprint(add(2, 3))",
-        "expected": "5"
-      },
-      {
-        "id": "e2",
-        "kind": "fillBlank",
-        "prompt": "Допишіть ключове слово для оголошення функції:\n\n____ greet(name):\n    return \"Hi, \" + name",
-        "expected": "def"
-      },
-      {
-        "id": "e3",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\ndef square(x):\n    return x * x\n\nprint(square(4))",
-        "expected": "16"
-      }
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\ndef add(a, b):\n    return a + b\n\nprint(add(2, 3))", "expected": "5"},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Допишіть ключове слово для оголошення функції:\n\n____ greet(name):\n    return \"Hi, \" + name", "expected": "def"},
+      {"id": "e3", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\ndef square(x):\n    return x * x\n\nprint(square(4))", "expected": "16"}
     ]
   },
   {
@@ -152,24 +67,9 @@
     "title": "Lists",
     "description": "Робота зі списками: створення, доступ, методи.",
     "exercises": [
-      {
-        "id": "e1",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nnums = [10, 20, 30]\nprint(nums[1])",
-        "expected": "20"
-      },
-      {
-        "id": "e2",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nfruits = [\"apple\", \"banana\"]\nfruits.append(\"cherry\")\nprint(len(fruits))",
-        "expected": "3"
-      },
-      {
-        "id": "e3",
-        "kind": "fillBlank",
-        "prompt": "Допишіть метод, який додає елемент в кінець списку:\n\nnums.____(99)",
-        "expected": "append"
-      }
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nnums = [10, 20, 30]\nprint(nums[1])", "expected": "20"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nfruits = [\"apple\", \"banana\"]\nfruits.append(\"cherry\")\nprint(len(fruits))", "expected": "3"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Допишіть метод, який додає елемент в кінець списку:\n\nnums.____(99)", "expected": "append"}
     ]
   },
   {
@@ -179,25 +79,9 @@
     "title": "Dictionaries",
     "description": "Словники: пари ключ–значення.",
     "exercises": [
-      {
-        "id": "e1",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nuser = {\"name\": \"Bohdan\", \"age\": 25}\nprint(user[\"name\"])",
-        "expected": "Bohdan"
-      },
-      {
-        "id": "e2",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nd = {\"a\": 1, \"b\": 2}\nd[\"c\"] = 3\nprint(len(d))",
-        "expected": "3"
-      },
-      {
-        "id": "e3",
-        "kind": "multipleChoice",
-        "prompt": "Яким методом отримати значення за ключем без помилки, якщо ключа немає?",
-        "choices": ["[]", "get", "pop", "keys"],
-        "expected": "get"
-      }
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nuser = {\"name\": \"Bohdan\", \"age\": 25}\nprint(user[\"name\"])", "expected": "Bohdan"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nd = {\"a\": 1, \"b\": 2}\nd[\"c\"] = 3\nprint(len(d))", "expected": "3"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Яким методом отримати значення за ключем без помилки, якщо ключа немає?", "choices": ["[]", "get", "pop", "keys"], "expected": "get"}
     ]
   },
   {
@@ -207,24 +91,9 @@
     "title": "Strings",
     "description": "Маніпуляції з рядками.",
     "exercises": [
-      {
-        "id": "e1",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\ns = \"Python\"\nprint(s.upper())",
-        "expected": "PYTHON"
-      },
-      {
-        "id": "e2",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nname = \"Ada\"\nprint(f\"Hello, {name}!\")",
-        "expected": "Hello, Ada!"
-      },
-      {
-        "id": "e3",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nprint(\"a,b,c\".split(\",\"))",
-        "expected": "['a', 'b', 'c']"
-      }
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\ns = \"Python\"\nprint(s.upper())", "expected": "PYTHON"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nname = \"Ada\"\nprint(f\"Hello, {name}!\")", "expected": "Hello, Ada!"},
+      {"id": "e3", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nprint(\"a,b,c\".split(\",\"))", "expected": "['a', 'b', 'c']"}
     ]
   },
   {
@@ -234,24 +103,9 @@
     "title": "List comprehensions",
     "description": "Стислий синтаксис створення списків.",
     "exercises": [
-      {
-        "id": "e1",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nsquares = [x*x for x in range(4)]\nprint(squares)",
-        "expected": "[0, 1, 4, 9]"
-      },
-      {
-        "id": "e2",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nevens = [n for n in range(6) if n % 2 == 0]\nprint(evens)",
-        "expected": "[0, 2, 4]"
-      },
-      {
-        "id": "e3",
-        "kind": "fillBlank",
-        "prompt": "Допишіть умову, щоб лишити тільки парні:\n\n[n for n in range(10) ____ n % 2 == 0]",
-        "expected": "if"
-      }
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nsquares = [x*x for x in range(4)]\nprint(squares)", "expected": "[0, 1, 4, 9]"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nevens = [n for n in range(6) if n % 2 == 0]\nprint(evens)", "expected": "[0, 2, 4]"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Допишіть умову, щоб лишити тільки парні:\n\n[n for n in range(10) ____ n % 2 == 0]", "expected": "if"}
     ]
   },
   {
@@ -261,31 +115,135 @@
     "title": "Imports & libraries",
     "description": "Імпорт стандартних модулів та використання бібліотек.",
     "exercises": [
-      {
-        "id": "e1",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nimport math\nprint(math.sqrt(16))",
-        "expected": "4.0"
-      },
-      {
-        "id": "e2",
-        "kind": "fillBlank",
-        "prompt": "Імпортуйте модуль json:\n\n____ json",
-        "expected": "import"
-      },
-      {
-        "id": "e3",
-        "kind": "multipleChoice",
-        "prompt": "Який інструмент встановлює сторонні Python-пакети?",
-        "choices": ["npm", "pip", "cargo", "apt"],
-        "expected": "pip"
-      },
-      {
-        "id": "e4",
-        "kind": "writeOutput",
-        "prompt": "Що виведе цей код?\n\nimport json\nprint(json.dumps({\"a\": 1}))",
-        "expected": "{\"a\": 1}"
-      }
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport math\nprint(math.sqrt(16))", "expected": "4.0"},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Імпортуйте модуль json:\n\n____ json", "expected": "import"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Який інструмент встановлює сторонні Python-пакети?", "choices": ["npm", "pip", "cargo", "apt"], "expected": "pip"},
+      {"id": "e4", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport json\nprint(json.dumps({\"a\": 1}))", "expected": "{\"a\": 1}"}
+    ]
+  },
+  {
+    "id": "py_11_tuples_sets",
+    "order": 11,
+    "topic": "collections",
+    "title": "Tuples & Sets",
+    "description": "Незмінні кортежі та множини унікальних значень.",
+    "exercises": [
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\npoint = (3, 4)\nprint(point[1])", "expected": "4"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nnums = {1, 2, 2, 3, 3, 3}\nprint(len(nums))", "expected": "3"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Який тип забороняє дублікати?", "choices": ["list", "tuple", "set", "dict"], "expected": "set"},
+      {"id": "e4", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\na, b = (10, 20)\nprint(a + b)", "expected": "30", "explanation": "Кортежі можна розпаковувати у змінні."}
+    ]
+  },
+  {
+    "id": "py_12_try_except",
+    "order": 12,
+    "topic": "errors",
+    "title": "Try / Except",
+    "description": "Обробка винятків.",
+    "exercises": [
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\ntry:\n    print(10 / 0)\nexcept ZeroDivisionError:\n    print(\"oops\")", "expected": "oops"},
+      {"id": "e2", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\ntry:\n    int(\"abc\")\nexcept ValueError:\n    print(\"bad input\")", "expected": "bad input"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Допишіть блок, який спрацює завжди:\n\ntry:\n    do()\nexcept:\n    pass\n____:\n    cleanup()", "expected": "finally"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Який виняток виникає при діленні на нуль?", "choices": ["ValueError", "TypeError", "ZeroDivisionError", "RuntimeError"], "expected": "ZeroDivisionError"}
+    ]
+  },
+  {
+    "id": "py_13_classes",
+    "order": 13,
+    "topic": "oop",
+    "title": "Classes & objects",
+    "description": "Оголошення класу, конструктор, методи.",
+    "exercises": [
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nclass Dog:\n    def __init__(self, name):\n        self.name = name\n\nd = Dog(\"Rex\")\nprint(d.name)", "expected": "Rex"},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Допишіть назву методу-конструктора:\n\nclass Person:\n    def ____(self, name):\n        self.name = name", "expected": "__init__"},
+      {"id": "e3", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nclass Counter:\n    def __init__(self):\n        self.n = 0\n    def inc(self):\n        self.n += 1\n\nc = Counter()\nc.inc()\nc.inc()\nprint(c.n)", "expected": "2"}
+    ]
+  },
+  {
+    "id": "py_14_inheritance",
+    "order": 14,
+    "topic": "oop",
+    "title": "Inheritance",
+    "description": "Наслідування та виклик super().",
+    "exercises": [
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nclass Animal:\n    def sound(self):\n        return \"...\"\n\nclass Cat(Animal):\n    def sound(self):\n        return \"meow\"\n\nprint(Cat().sound())", "expected": "meow"},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Допишіть виклик батьківського конструктора:\n\nclass Child(Parent):\n    def __init__(self):\n        ____().__init__()", "expected": "super"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Як перевірити, що obj — це екземпляр класу A?", "choices": ["typeof(obj) == A", "isinstance(obj, A)", "obj.is(A)", "obj is A"], "expected": "isinstance(obj, A)"}
+    ]
+  },
+  {
+    "id": "py_15_decorators",
+    "order": 15,
+    "topic": "advanced",
+    "title": "Decorators",
+    "description": "Функції-обгортки для розширення поведінки.",
+    "exercises": [
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\ndef shout(fn):\n    def wrap():\n        return fn().upper()\n    return wrap\n\n@shout\ndef hi():\n    return \"hi\"\n\nprint(hi())", "expected": "HI"},
+      {"id": "e2", "kind": "multipleChoice", "prompt": "Який символ позначає декоратор?", "choices": ["#", "@", "$", "%"], "expected": "@"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Допишіть декоратор, який зробить метод властивістю:\n\nclass A:\n    ____\n    def name(self):\n        return \"x\"", "expected": "@property"}
+    ]
+  },
+  {
+    "id": "py_16_files",
+    "order": 16,
+    "topic": "io",
+    "title": "Files & with",
+    "description": "Читання й запис файлів через контекстний менеджер.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Допишіть ключове слово для безпечної роботи з файлом:\n\n____ open(\"data.txt\") as f:\n    data = f.read()", "expected": "with"},
+      {"id": "e2", "kind": "multipleChoice", "prompt": "Який режим відкриває файл лише для дозапису в кінець?", "choices": ["r", "w", "a", "x"], "expected": "a"},
+      {"id": "e3", "kind": "writeOutput", "prompt": "Що виведе цей код, якщо файл містить рядок 'hello'?\n\nwith open(\"data.txt\") as f:\n    print(f.read().upper())", "expected": "HELLO"}
+    ]
+  },
+  {
+    "id": "py_17_json",
+    "order": 17,
+    "topic": "libraries",
+    "title": "JSON",
+    "description": "Серіалізація та парсинг JSON.",
+    "exercises": [
+      {"id": "e1", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport json\nprint(json.loads('{\"x\": 1}')[\"x\"])", "expected": "1"},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Серіалізуйте словник у JSON-рядок:\n\nimport json\ntext = json.____({\"a\": 1})", "expected": "dumps"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Яким об'єктом стане JSON 'null' після парсингу в Python?", "choices": ["0", "None", "\"\"", "False"], "expected": "None"}
+    ]
+  },
+  {
+    "id": "py_18_requests",
+    "order": 18,
+    "topic": "libraries",
+    "title": "HTTP with requests",
+    "description": "Бібліотека requests для HTTP-запитів.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Допишіть метод для GET-запиту:\n\nimport requests\nr = requests.____('https://api.example.com')", "expected": "get"},
+      {"id": "e2", "kind": "multipleChoice", "prompt": "Який атрибут містить статус код відповіді?", "choices": ["r.code", "r.status", "r.status_code", "r.http_code"], "expected": "r.status_code"},
+      {"id": "e3", "kind": "fillBlank", "prompt": "Розпарсіть JSON з відповіді:\n\ndata = r.____()", "expected": "json"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Який метод requests відправляє тіло запиту з JSON?", "choices": ["requests.get", "requests.post", "requests.head", "requests.delete"], "expected": "requests.post"}
+    ]
+  },
+  {
+    "id": "py_19_pandas",
+    "order": 19,
+    "topic": "libraries",
+    "title": "Pandas basics",
+    "description": "Робота з табличними даними через pandas.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Допишіть назву головного типу даних pandas:\n\nimport pandas as pd\ndf = pd.____({\"a\": [1, 2, 3]})", "expected": "DataFrame"},
+      {"id": "e2", "kind": "multipleChoice", "prompt": "Який метод читає CSV-файл?", "choices": ["pd.open_csv", "pd.read_csv", "pd.load_csv", "pd.import_csv"], "expected": "pd.read_csv"},
+      {"id": "e3", "kind": "writeOutput", "prompt": "Що виведе цей код?\n\nimport pandas as pd\ndf = pd.DataFrame({\"a\": [1, 2, 3]})\nprint(df[\"a\"].sum())", "expected": "6"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Як отримати перші 5 рядків DataFrame?", "choices": ["df.first(5)", "df.top(5)", "df.head()", "df[:5].show()"], "expected": "df.head()"}
+    ]
+  },
+  {
+    "id": "py_20_async",
+    "order": 20,
+    "topic": "advanced",
+    "title": "async / await",
+    "description": "Базова асинхронність з asyncio.",
+    "exercises": [
+      {"id": "e1", "kind": "fillBlank", "prompt": "Допишіть ключове слово для асинхронної функції:\n\n____ def fetch():\n    return 42", "expected": "async"},
+      {"id": "e2", "kind": "fillBlank", "prompt": "Допишіть ключове слово для очікування coroutine:\n\nresult = ____ fetch()", "expected": "await"},
+      {"id": "e3", "kind": "multipleChoice", "prompt": "Який модуль стандартної бібліотеки для асинхронності?", "choices": ["asyncio", "threading", "subprocess", "queue"], "expected": "asyncio"},
+      {"id": "e4", "kind": "multipleChoice", "prompt": "Що повертає виклик async-функції?", "choices": ["рядок", "число", "coroutine", "None"], "expected": "coroutine"}
     ]
   }
 ]

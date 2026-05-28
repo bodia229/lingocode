@@ -1,5 +1,7 @@
 # LingoCode
 
+[![Build](https://github.com/bodia229/lingocode/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/bodia229/lingocode/actions/workflows/build.yml)
+[![Last commit](https://img.shields.io/github/last-commit/bodia229/lingocode?logo=github)](https://github.com/bodia229/lingocode/commits/main)
 [![Flutter](https://img.shields.io/badge/Flutter-3.24-02569B?logo=flutter&logoColor=white)](https://flutter.dev/)
 [![Dart](https://img.shields.io/badge/Dart-3.5-0175C2?logo=dart&logoColor=white)](https://dart.dev/)
 [![Platforms](https://img.shields.io/badge/platforms-Android%20%7C%20Web%20%7C%20Windows-purple)]()
