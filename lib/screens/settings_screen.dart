@@ -45,6 +45,26 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(height: 16),
+          _sectionTitle(context, context.tr('feedback')),
+          Card(
+            child: Column(
+              children: [
+                SwitchListTile(
+                  title: Text(context.tr('sound')),
+                  secondary: const Icon(Icons.volume_up),
+                  value: prefs.soundEnabled,
+                  onChanged: (v) => context.read<AppPrefs>().setSoundEnabled(v),
+                ),
+                SwitchListTile(
+                  title: Text(context.tr('haptic')),
+                  secondary: const Icon(Icons.vibration),
+                  value: prefs.hapticEnabled,
+                  onChanged: (v) => context.read<AppPrefs>().setHapticEnabled(v),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

@@ -1,25 +1,39 @@
 import 'package:flutter/material.dart';
 import '../services/database.dart';
+import '../services/feedback_service.dart';
 
-/// Holds user-selected app preferences (locale + theme mode), persisted in SQLite.
 class AppPrefs extends ChangeNotifier {
   static const _kLocale = 'locale';
   static const _kTheme = 'theme_mode';
+  static const _kSound = 'sound_enabled';
+  static const _kHaptic = 'haptic_enabled';
 
   Locale _locale;
   ThemeMode _themeMode;
+  bool _soundEnabled;
+  bool _hapticEnabled;
 
   Locale get locale => _locale;
   ThemeMode get themeMode => _themeMode;
+  bool get soundEnabled => _soundEnabled;
+  bool get hapticEnabled => _hapticEnabled;
 
-  AppPrefs(this._locale, this._themeMode);
+  AppPrefs(this._locale, this._themeMode, this._soundEnabled, this._hapticEnabled) {
+    FeedbackService.soundEnabled = _soundEnabled;
+    FeedbackService.hapticEnabled = _hapticEnabled;
+  }
 
   static Future<AppPrefs> load() async {
     final savedLocale = await Db.instance.getStat(_kLocale);
     final savedTheme = await Db.instance.getStat(_kTheme);
-    final code = savedLocale ?? _systemLocaleCode();
-    final mode = _modeFromString(savedTheme);
-    return AppPrefs(_localeFromCode(code), mode);
+    final savedSound = await Db.instance.getStat(_kSound);
+    final savedHaptic = await Db.instance.getStat(_kHaptic);
+    return AppPrefs(
+      _localeFromCode(savedLocale ?? _systemLocaleCode()),
+      _modeFromString(savedTheme),
+      savedSound != 'false',
+      savedHaptic != 'false',
+    );
   }
 
   Future<void> setLocale(Locale locale) async {
@@ -33,6 +47,22 @@ class AppPrefs extends ChangeNotifier {
     if (_themeMode == mode) return;
     _themeMode = mode;
     await Db.instance.setStat(_kTheme, mode.name);
+    notifyListeners();
+  }
+
+  Future<void> setSoundEnabled(bool enabled) async {
+    if (_soundEnabled == enabled) return;
+    _soundEnabled = enabled;
+    FeedbackService.soundEnabled = enabled;
+    await Db.instance.setStat(_kSound, enabled.toString());
+    notifyListeners();
+  }
+
+  Future<void> setHapticEnabled(bool enabled) async {
+    if (_hapticEnabled == enabled) return;
+    _hapticEnabled = enabled;
+    FeedbackService.hapticEnabled = enabled;
+    await Db.instance.setStat(_kHaptic, enabled.toString());
     notifyListeners();
   }
 
@@ -65,5 +95,4 @@ class AppPrefs extends ChangeNotifier {
   }
 }
 
-// Backwards-compatible alias for screens that imported LocaleNotifier.
 typedef LocaleNotifier = AppPrefs;

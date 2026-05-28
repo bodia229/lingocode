@@ -94,31 +94,58 @@ class Db {
     await db.update('flashcards', c.toMap(), where: 'id = ?', whereArgs: [c.id]);
   }
 
-  Future<List<Flashcard>> dueCards({CardType? type, int limit = 30}) async {
+  Future<List<Flashcard>> dueCards(
+      {CardType? type, String? topic, int limit = 30}) async {
     final db = await database;
     final now = DateTime.now().toIso8601String();
+    final clauses = <String>['next_review <= ?'];
+    final args = <Object>[now];
+    if (type != null) {
+      clauses.add('type = ?');
+      args.add(type.name);
+    }
+    if (topic != null) {
+      clauses.add('topic = ?');
+      args.add(topic);
+    }
     final rows = await db.query(
       'flashcards',
-      where: type == null
-          ? 'next_review <= ?'
-          : 'next_review <= ? AND type = ?',
-      whereArgs: type == null ? [now] : [now, type.name],
+      where: clauses.join(' AND '),
+      whereArgs: args,
       orderBy: 'next_review ASC',
       limit: limit,
     );
     return rows.map(Flashcard.fromMap).toList();
   }
 
-  Future<int> countDue({CardType? type}) async {
+  Future<int> countDue({CardType? type, String? topic}) async {
     final db = await database;
     final now = DateTime.now().toIso8601String();
+    final clauses = <String>['next_review <= ?'];
+    final args = <Object>[now];
+    if (type != null) {
+      clauses.add('type = ?');
+      args.add(type.name);
+    }
+    if (topic != null) {
+      clauses.add('topic = ?');
+      args.add(topic);
+    }
     final result = await db.rawQuery(
-      type == null
-          ? 'SELECT COUNT(*) FROM flashcards WHERE next_review <= ?'
-          : 'SELECT COUNT(*) FROM flashcards WHERE next_review <= ? AND type = ?',
-      type == null ? [now] : [now, type.name],
+      'SELECT COUNT(*) FROM flashcards WHERE ${clauses.join(' AND ')}',
+      args,
     );
     return Sqflite.firstIntValue(result) ?? 0;
+  }
+
+  Future<List<Flashcard>> cardsForTopic(String topic,
+      {CardType? type, int? limit}) async {
+    final db = await database;
+    final where = type == null ? 'topic = ?' : 'topic = ? AND type = ?';
+    final args = type == null ? [topic] : [topic, type.name];
+    final rows = await db.query('flashcards',
+        where: where, whereArgs: args, orderBy: 'next_review ASC', limit: limit);
+    return rows.map(Flashcard.fromMap).toList();
   }
 
   Future<int> countTotal({CardType? type}) async {

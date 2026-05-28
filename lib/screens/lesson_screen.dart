@@ -4,6 +4,7 @@ import '../l10n/app_strings.dart';
 import '../models/lesson.dart';
 import '../services/checker.dart';
 import '../services/database.dart';
+import '../services/feedback_service.dart';
 import '../services/streak.dart';
 
 class LessonScreen extends StatefulWidget {
@@ -47,8 +48,11 @@ class _LessonScreenState extends State<LessonScreen> {
       _correct = ok;
     });
     if (ok) {
+      await FeedbackService.correct();
       await StreakService.addXp(5);
       await StreakService.bumpForReviewToday();
+    } else {
+      await FeedbackService.wrong();
     }
   }
 
@@ -61,8 +65,11 @@ class _LessonScreenState extends State<LessonScreen> {
       _correct = ok;
     });
     if (ok) {
+      await FeedbackService.correct();
       await StreakService.addXp(5);
       await StreakService.bumpForReviewToday();
+    } else {
+      await FeedbackService.wrong();
     }
   }
 

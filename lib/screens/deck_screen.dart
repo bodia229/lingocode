@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/app_strings.dart';
 import '../models/flashcard.dart';
 import '../services/database.dart';
+import 'review_screen.dart';
 
 class DeckScreen extends StatefulWidget {
   const DeckScreen({super.key});
@@ -119,6 +120,19 @@ class _DeckScreenState extends State<DeckScreen> {
           ),
         ),
       ),
+      floatingActionButton: _activeTopic == null
+          ? null
+          : FloatingActionButton.extended(
+              icon: const Icon(Icons.play_arrow),
+              label: Text(context.tr('review_topic_btn')),
+              onPressed: () async {
+                await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => ReviewScreen(topic: _activeTopic)));
+                _load();
+              },
+            ),
       body: cards.isEmpty
           ? Center(child: Text(context.tr('no_cards')))
           : ListView.builder(

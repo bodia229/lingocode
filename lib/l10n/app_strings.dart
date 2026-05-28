@@ -385,6 +385,38 @@ class AppStrings extends InheritedWidget {
     'ach_perfect': {'en': 'Flawless', 'uk': 'Бездоганно', 'ru': 'Безупречно'},
     'ach_perfect_desc': {'en': 'Finish a review session without a single mistake.', 'uk': 'Завершити сесію повторення без помилок.', 'ru': 'Завершить сессию повторения без ошибок.'},
 
+    // Feedback prefs
+    'feedback': {
+      'en': 'Feedback',
+      'uk': 'Зворотний звʼязок',
+      'ru': 'Обратная связь',
+    },
+    'sound': {
+      'en': 'Sound',
+      'uk': 'Звук',
+      'ru': 'Звук',
+    },
+    'haptic': {
+      'en': 'Vibration',
+      'uk': 'Вібрація',
+      'ru': 'Вибрация',
+    },
+    'review_topic': {
+      'en': 'Review only "{topic}"',
+      'uk': 'Повторити лише "{topic}"',
+      'ru': 'Повторить только "{topic}"',
+    },
+    'review_topic_btn': {
+      'en': 'Review topic',
+      'uk': 'Повторити топік',
+      'ru': 'Повторить топик',
+    },
+    'cancel': {
+      'en': 'Cancel',
+      'uk': 'Скасувати',
+      'ru': 'Отмена',
+    },
+
     // Languages
     'lang_en': {
       'en': 'English',

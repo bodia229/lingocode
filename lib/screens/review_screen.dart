@@ -6,12 +6,14 @@ import '../l10n/app_strings.dart';
 import '../models/achievement.dart';
 import '../models/flashcard.dart';
 import '../services/database.dart';
+import '../services/feedback_service.dart';
 import '../services/game_service.dart';
 import '../services/srs.dart';
 import '../services/streak.dart';
 
 class ReviewScreen extends StatefulWidget {
-  const ReviewScreen({super.key});
+  final String? topic;
+  const ReviewScreen({super.key, this.topic});
   @override
   State<ReviewScreen> createState() => _ReviewScreenState();
 }
@@ -42,15 +44,21 @@ class _ReviewScreenState extends State<ReviewScreen> {
   }
 
   Future<void> _load() async {
-    final cards = await Db.instance.dueCards(type: CardType.english, limit: 30);
+    final cards = await Db.instance.dueCards(
+        type: CardType.english, topic: widget.topic, limit: 30);
     if (cards.isEmpty) {
-      final db = await Db.instance.database;
-      final rows = await db.query('flashcards',
-          where: 'type = ?',
-          whereArgs: [CardType.english.name],
-          orderBy: 'next_review ASC',
-          limit: 10);
-      _queue = rows.map(Flashcard.fromMap).toList();
+      if (widget.topic != null) {
+        _queue = await Db.instance.cardsForTopic(widget.topic!,
+            type: CardType.english, limit: 10);
+      } else {
+        final db = await Db.instance.database;
+        final rows = await db.query('flashcards',
+            where: 'type = ?',
+            whereArgs: [CardType.english.name],
+            orderBy: 'next_review ASC',
+            limit: 10);
+        _queue = rows.map(Flashcard.fromMap).toList();
+      }
     } else {
       _queue = cards;
     }
@@ -67,9 +75,11 @@ class _ReviewScreenState extends State<ReviewScreen> {
     if (g == Grade.again) {
       _mistakes += 1;
       _combo = 0;
+      await FeedbackService.wrong();
     } else {
       _combo += 1;
       if (_combo > _maxCombo) _maxCombo = _combo;
+      await FeedbackService.correct();
     }
 
     final xpDelta = switch (g) {

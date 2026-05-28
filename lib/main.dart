@@ -9,6 +9,7 @@ import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 import 'l10n/app_strings.dart';
 import 'l10n/locale_notifier.dart';
 import 'screens/home_screen.dart';
+import 'screens/splash_screen.dart';
 import 'services/database.dart';
 import 'services/seed.dart';
 import 'theme.dart';
@@ -61,7 +62,7 @@ class LingoCodeApp extends StatelessWidget {
           child: child ?? const SizedBox.shrink(),
         );
       },
-      home: const HomeScreen(),
+      home: const SplashScreen(next: HomeScreen()),
     );
   }
 }
