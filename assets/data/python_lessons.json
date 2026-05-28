@@ -1,0 +1,291 @@
+[
+  {
+    "id": "py_01_print",
+    "order": 1,
+    "topic": "basics",
+    "title": "Hello, World",
+    "description": "Виведення тексту у консоль за допомогою функції print().",
+    "exercises": [
+      {
+        "id": "e1",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nprint(\"Hello, world!\")",
+        "expected": "Hello, world!",
+        "explanation": "print() виводить аргумент і додає перенесення рядка."
+      },
+      {
+        "id": "e2",
+        "kind": "fillBlank",
+        "prompt": "Допишіть код, щоб вивести Python:\n\n____(\"Python\")",
+        "expected": "print",
+        "hint": "Це вбудована функція виведення."
+      },
+      {
+        "id": "e3",
+        "kind": "multipleChoice",
+        "prompt": "Яка функція виводить текст у консоль?",
+        "choices": ["echo", "print", "console.log", "puts"],
+        "expected": "print"
+      }
+    ]
+  },
+  {
+    "id": "py_02_variables",
+    "order": 2,
+    "topic": "basics",
+    "title": "Variables",
+    "description": "Створення та використання змінних.",
+    "exercises": [
+      {
+        "id": "e1",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nname = \"Bohdan\"\nprint(\"Hello, \" + name)",
+        "expected": "Hello, Bohdan"
+      },
+      {
+        "id": "e2",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nx = 10\ny = 3\nprint(x + y)",
+        "expected": "13"
+      },
+      {
+        "id": "e3",
+        "kind": "multipleChoice",
+        "prompt": "Який тип у змінної x = 3.14?",
+        "choices": ["int", "float", "str", "bool"],
+        "expected": "float"
+      },
+      {
+        "id": "e4",
+        "kind": "fillBlank",
+        "prompt": "Створіть змінну age зі значенням 25:\n\nage ____ 25",
+        "expected": "="
+      }
+    ]
+  },
+  {
+    "id": "py_03_conditions",
+    "order": 3,
+    "topic": "basics",
+    "title": "If / Else",
+    "description": "Перевірка умов через if/elif/else.",
+    "exercises": [
+      {
+        "id": "e1",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nx = 5\nif x > 3:\n    print(\"big\")\nelse:\n    print(\"small\")",
+        "expected": "big"
+      },
+      {
+        "id": "e2",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nscore = 75\nif score >= 90:\n    print(\"A\")\nelif score >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")",
+        "expected": "B"
+      },
+      {
+        "id": "e3",
+        "kind": "multipleChoice",
+        "prompt": "Який оператор перевіряє рівність значень?",
+        "choices": ["=", "==", "===", "eq"],
+        "expected": "=="
+      }
+    ]
+  },
+  {
+    "id": "py_04_loops",
+    "order": 4,
+    "topic": "basics",
+    "title": "Loops",
+    "description": "Цикли for та while.",
+    "exercises": [
+      {
+        "id": "e1",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nfor i in range(3):\n    print(i)",
+        "expected": "0\n1\n2"
+      },
+      {
+        "id": "e2",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\ntotal = 0\nfor n in [1, 2, 3, 4]:\n    total += n\nprint(total)",
+        "expected": "10"
+      },
+      {
+        "id": "e3",
+        "kind": "fillBlank",
+        "prompt": "Допишіть цикл, який виведе числа 0,1,2,3,4:\n\nfor i in ____(5):\n    print(i)",
+        "expected": "range"
+      }
+    ]
+  },
+  {
+    "id": "py_05_functions",
+    "order": 5,
+    "topic": "basics",
+    "title": "Functions",
+    "description": "Оголошення функцій та повернення значень.",
+    "exercises": [
+      {
+        "id": "e1",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\ndef add(a, b):\n    return a + b\n\nprint(add(2, 3))",
+        "expected": "5"
+      },
+      {
+        "id": "e2",
+        "kind": "fillBlank",
+        "prompt": "Допишіть ключове слово для оголошення функції:\n\n____ greet(name):\n    return \"Hi, \" + name",
+        "expected": "def"
+      },
+      {
+        "id": "e3",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\ndef square(x):\n    return x * x\n\nprint(square(4))",
+        "expected": "16"
+      }
+    ]
+  },
+  {
+    "id": "py_06_lists",
+    "order": 6,
+    "topic": "collections",
+    "title": "Lists",
+    "description": "Робота зі списками: створення, доступ, методи.",
+    "exercises": [
+      {
+        "id": "e1",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nnums = [10, 20, 30]\nprint(nums[1])",
+        "expected": "20"
+      },
+      {
+        "id": "e2",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nfruits = [\"apple\", \"banana\"]\nfruits.append(\"cherry\")\nprint(len(fruits))",
+        "expected": "3"
+      },
+      {
+        "id": "e3",
+        "kind": "fillBlank",
+        "prompt": "Допишіть метод, який додає елемент в кінець списку:\n\nnums.____(99)",
+        "expected": "append"
+      }
+    ]
+  },
+  {
+    "id": "py_07_dicts",
+    "order": 7,
+    "topic": "collections",
+    "title": "Dictionaries",
+    "description": "Словники: пари ключ–значення.",
+    "exercises": [
+      {
+        "id": "e1",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nuser = {\"name\": \"Bohdan\", \"age\": 25}\nprint(user[\"name\"])",
+        "expected": "Bohdan"
+      },
+      {
+        "id": "e2",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nd = {\"a\": 1, \"b\": 2}\nd[\"c\"] = 3\nprint(len(d))",
+        "expected": "3"
+      },
+      {
+        "id": "e3",
+        "kind": "multipleChoice",
+        "prompt": "Яким методом отримати значення за ключем без помилки, якщо ключа немає?",
+        "choices": ["[]", "get", "pop", "keys"],
+        "expected": "get"
+      }
+    ]
+  },
+  {
+    "id": "py_08_strings",
+    "order": 8,
+    "topic": "basics",
+    "title": "Strings",
+    "description": "Маніпуляції з рядками.",
+    "exercises": [
+      {
+        "id": "e1",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\ns = \"Python\"\nprint(s.upper())",
+        "expected": "PYTHON"
+      },
+      {
+        "id": "e2",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nname = \"Ada\"\nprint(f\"Hello, {name}!\")",
+        "expected": "Hello, Ada!"
+      },
+      {
+        "id": "e3",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nprint(\"a,b,c\".split(\",\"))",
+        "expected": "['a', 'b', 'c']"
+      }
+    ]
+  },
+  {
+    "id": "py_09_comprehensions",
+    "order": 9,
+    "topic": "advanced",
+    "title": "List comprehensions",
+    "description": "Стислий синтаксис створення списків.",
+    "exercises": [
+      {
+        "id": "e1",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nsquares = [x*x for x in range(4)]\nprint(squares)",
+        "expected": "[0, 1, 4, 9]"
+      },
+      {
+        "id": "e2",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nevens = [n for n in range(6) if n % 2 == 0]\nprint(evens)",
+        "expected": "[0, 2, 4]"
+      },
+      {
+        "id": "e3",
+        "kind": "fillBlank",
+        "prompt": "Допишіть умову, щоб лишити тільки парні:\n\n[n for n in range(10) ____ n % 2 == 0]",
+        "expected": "if"
+      }
+    ]
+  },
+  {
+    "id": "py_10_imports",
+    "order": 10,
+    "topic": "libraries",
+    "title": "Imports & libraries",
+    "description": "Імпорт стандартних модулів та використання бібліотек.",
+    "exercises": [
+      {
+        "id": "e1",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nimport math\nprint(math.sqrt(16))",
+        "expected": "4.0"
+      },
+      {
+        "id": "e2",
+        "kind": "fillBlank",
+        "prompt": "Імпортуйте модуль json:\n\n____ json",
+        "expected": "import"
+      },
+      {
+        "id": "e3",
+        "kind": "multipleChoice",
+        "prompt": "Який інструмент встановлює сторонні Python-пакети?",
+        "choices": ["npm", "pip", "cargo", "apt"],
+        "expected": "pip"
+      },
+      {
+        "id": "e4",
+        "kind": "writeOutput",
+        "prompt": "Що виведе цей код?\n\nimport json\nprint(json.dumps({\"a\": 1}))",
+        "expected": "{\"a\": 1}"
+      }
+    ]
+  }
+]
